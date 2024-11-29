@@ -59,9 +59,29 @@ namespace Gruppenseminar2425 {
       OpenFileDialog openFileDialog = new OpenFileDialog(); //erstmal wieder die Datei auswählen
       DialogResult result = openFileDialog.ShowDialog();
       if (result == DialogResult.OK) {
-        bitBeispiel=new Bitmap(openFileDialog.FileName);
-        
+        bitBeispiel=new Bitmap(openFileDialog.FileName); //hier erstellt man die eingelesene Bilddatei einfach als "bitmap"
       }
+      int iTest = 0; //ich erstelle ienen integer namens iTest und setze ihn auf 0
+      Color DiesIstEineFarbe=bitBeispiel.GetPixel(5,10); //hiermit lese ich die "Farbe" des Pixels im Bild bei x=5, y=10. Die Farbe ist jetzt in DiesIstEineFarbe gespeichert
+      iTest = DiesIstEineFarbe.R; // jetzt setze ich i auf den Rotwert (R) des Pixels, das ich eben eingelesen habe. Bei graustufenbildern sind R, G und B gleich (ist also egal, was man nimmt)
+
+      int[] iTestArray = new int[20]; //so erstelle ich einen Array, der aus integern besteht und 20 lang ist
+      for (int i = 0; i < 20; i++) { //for-schleife, die ich nutze, um alle einträge in iTestArray zu ändern. ACHTUNG: Das erste Element hat immer den index 0, darum starten wir auch bei i=0
+        iTestArray[i] = 10;
+      }
+      
+      //wenn ich keine Ahnung habe, wie lang mein Array sein muss, dann kann ich auch eine Liste bennutzen
+      List<int> Testliste = new List<int>();
+      //jetzt kann ich beliebig viele Sachen da reinschreiben
+      Testliste.Add(1);
+      Testliste.Add(2057);
+      Testliste.Add(45); //jetzt habe ich 3 verschiedene Zahlen in meiner Liste :) 1, 2057 und 45. Ohne dass ich am Anfang wissen muss, wie viele Zahlen ich reinschreibe
+
+      //mit einer foreach-schleife kann ich jedes Element in einer Liste einmal durchgehen
+      foreach (int blabla in Testliste) { //--> was in dieser Schleife steht, wird einmal für jeden int in testliste ausgeführt. 
+        ioBeispiel.Add(blabla,2);
+      }
+
     }
   }
 }
